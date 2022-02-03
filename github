@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+bool cmp(pair<string, int>& a,
+		pair<string, int>& b)
+{
+	return a.second > b.second;
+}
+
+void sort(map<string, int>& M)
+{
+
+	vector<pair<string, int> > A;
+
+	for (auto& it : M) {
+		A.push_back(it);
+	}
+
+	sort(A.begin(), A.end(), cmp);
+
+	for (auto& it : A) {
+
+		cout << it.first << endl;
+	}
+}
+
+int main()
+{
+
+	
+	map<string, int> M;
+    int n;
+    
+    cin>>n;
+    string name;
+    
+    int cases;
+    
+    for(int i=0;i<n;i++){
+       
+        cin>>name;
+        cin>>cases;
+        M.insert(pair<string,int>(name,cases));
+    }
+
+	sort(M);
+	return 0;
+}
